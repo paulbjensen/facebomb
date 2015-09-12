@@ -40,24 +40,12 @@ function initialize () {
 }
 
 
-function removeEffects () {
-  window.document.querySelector('video')
-  .setAttribute('class', '');  
-}
-
-
-
-function applyEffect (effectName) {
-  window.document.querySelector('video')
-  .setAttribute('class', effectName);  
-}
-
 
 function takePhoto () {
   var saveFile  = window.document.querySelector('#saveFile');
   var canvas    = window.document.querySelector('canvas');
   var video     = window.document.querySelector('video');
-  canvas.getContext('2d').drawImage(video, 0, 0, 320, 240);
+  canvas.getContext('2d').drawImage(video, 0, 0, video.videoWidth/2, video.videoHeight/2);
   photoData     = canvas.toDataURL('image/png').replace(/^data:image\/(png|jpg|jpeg);base64,/, '');
   saveFile.click();
 }
